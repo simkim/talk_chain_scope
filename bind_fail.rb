@@ -1,19 +1,19 @@
+# !/usr/bin/env ruby
+# frozen_string_literal: true
 
-#!/usr/bin/env ruby
-
+# a basic model with a class method
 class Person
-    def self.hello
-        puts "Hello"
-    end
+  def self.hello
+    puts 'Hello'
+  end
 end
 
 class Relation
 end
 
-r = Relation.new
 Person.method(:hello).unbind.bind(Relation).call
 # in `bind': singleton method called for a different object (TypeError)
 
-
+r = Relation.new
 Person.method(:hello).unbind.bind(r).call
 # in `bind': singleton method called for a different object (TypeError)
